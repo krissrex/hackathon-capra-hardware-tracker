@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ProductSearchPage from "./components/ProductSearchPage/ProductSearchPage";
 import CreateProductPage from "./components/CreateProductPage/CreateProductPage";
 
+import "./TestData"
+
 function App() {
   return (
     <Router>
@@ -33,7 +35,7 @@ function App() {
           <Route path="/search">
             <ProductSearchPage />
           </Route>
-          <Route path="/product/:uuid">
+          <Route path="/product/:productUuid">
             <ProductPage />
           </Route>
         </Switch>

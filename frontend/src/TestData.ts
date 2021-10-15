@@ -12,7 +12,9 @@ export const testData: ProductAggregate[] = [
       condition: 'AS_NEW',
       type: 'PC',
       status: "IN_STORAGE",
-      productPictures: [],
+      productPictures: [
+        "https://www.windowscentral.com/sites/wpcentral.com/files/styles/larger/public/field/image/2018/01/zenbook-13-ux331ual.jpg"
+      ],
     },
     receipt: {
       store: "Elkjøp",
@@ -57,3 +59,5 @@ export const testData: ProductAggregate[] = [
     ],
   },
 ]
+
+console.log(JSON.stringify(testData[0]))

@@ -14,7 +14,16 @@ export async function getProduct(productUuid: string): Promise<ProductAggregate>
   const response = await Axios.get("product/" + productUuid)
   const data = response.data as any
   return {
-    ...data,
+    ...data.data,
+    uuid: data.uuid
+  } as ProductAggregate
+}
+
+export async function reserveProduct(productUuid: string): Promise<ProductAggregate> {
+  const response = await Axios.post("product/" + productUuid + "/reserve")
+  const data = response.data as any
+  return {
+    ...data.data,
     uuid: data.uuid
   } as ProductAggregate
 }

@@ -5,9 +5,7 @@ GET http://localhost:8080/api/product
 POST http://localhost:8080/api/product
 Content-Type: application/json
 
-{
-  "product":{"producer":"Asus","model":"zenbook","year":"2018","specs":"super fancy quad core","condition":0,"type":0},"receipt":{"store":"Elkjøp","price":29999,"dateOfPurchase":"2020-02-02T23:00:00.000Z"},"priceCurve":0,"owners":[{"fullName":"Per Persen","from":"2020-02-02T23:00:00.000Z"}]
-}
+{"product":{"producer":"Asus","model":"zenbook","year":"2018","specs":"super fancy quad core","condition":"AS_NEW","type":"PC","status":"IN_STORAGE","productPictures":["https://www.windowscentral.com/sites/wpcentral.com/files/styles/larger/public/field/image/2018/01/zenbook-13-ux331ual.jpg"]},"receipt":{"store":"Elkjøp","price":29999,"dateOfPurchase":"2020-02-02T23:00:00.000Z"},"priceCurve":"STANDARD","owners":[{"fullName":"Per Persen","from":"2020-02-02T23:00:00.000Z"}]}
 
 ###
 
@@ -28,3 +26,6 @@ DELETE http://localhost:8080/api/product/7a957680-2e45-4944-8b97-4ee3b2b6c6a1
 
 GET http://localhost:8080/api/product?name=my%20mac
 
+###
+
+GET http://localhost:8080/api/product/47e7693a-b6f7-4de8-b291-d0fdfd52d15e
