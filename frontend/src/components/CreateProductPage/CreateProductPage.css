@@ -1,7 +1,7 @@
-input[type=text], select {
+input[type=text],input[type=number],input[type=date], select {
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 8px 0 20px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -22,7 +22,9 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #45a049;
 }
-
+form {
+  max-width: 400px;
+}
 div {
   border-radius: 5px;
   background-color: #f2f2f2;

@@ -19,6 +19,7 @@ export const testData: ProductAggregate[] = [
       price: 29999,
       dateOfPurchase: new Date("02.03.2020"),
       picture: undefined,
+      buyer: 'Mr. handsome',
     },
     priceCurve: 'STANDARD',
     owners: [
@@ -45,6 +46,7 @@ export const testData: ProductAggregate[] = [
       price: 29999,
       dateOfPurchase: new Date("02.03.2020"),
       picture: undefined,
+      buyer: 'Mr. handsome',
     },
     priceCurve: 'STANDARD',
     owners: [

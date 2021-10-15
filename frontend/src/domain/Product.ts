@@ -5,6 +5,7 @@ export interface Receipt {
   price: number;
   dateOfPurchase: Date;
   picture?: ImageDataUri;
+  buyer: string
 }
 
 export interface Product {
