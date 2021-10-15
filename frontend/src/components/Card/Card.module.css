@@ -1,0 +1,31 @@
+.container {
+  background-color: var(--color-blue-extra-light);
+  padding: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+
+.primary {
+  background-color: var(--color-primary);
+}
+
+.secondary {
+  background-color: var(--color-secondary);
+}
+
+.white {
+  background-color: var(--color-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.elevation-1 {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.elevation-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06), 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.no-margin {
+  margin: 0;
+}
