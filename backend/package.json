@@ -35,7 +35,6 @@
     "pg-hstore": "^2.3.4",
     "pm2": "^5.1.0",
     "sequelize": "^6.7.0",
-    "shared-lib": "file:../shared-lib",
     "swagger-jsdoc": "^6.0.0",
     "swagger-ui-express": "^4.1.6",
     "ts-jest": "^27.0.3",
