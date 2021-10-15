@@ -1,8 +1,10 @@
+export type ImageDataUri = string
+
 export interface Receipt {
   store: string;
   price: number;
   dateOfPurchase: Date;
-  picture?: string;
+  picture?: ImageDataUri;
 }
 
 export interface Product {
@@ -11,22 +13,23 @@ export interface Product {
   year: String;
   specs: String;
   condition: Condition;
-  type: Type | string
+  type: Type | string;
+  status: ProductStatus;
+  productPictures: ImageDataUri[]
 }
 
-export enum Type {
-  PC,
-  CELLPHONE,
-  TABLET,
-  KEYBOARD,
-  HEADSET,
-}
+export type ProductStatus = "BOUGHT_OUT" | "OWNED" | "IN_STORAGE" | "RESERVED"
 
-export enum Condition {
-  AS_NEW,
-  WORN,
-  NEW,
-}
+export type Type = "PC"
+  | "CELLPHONE"
+  | "TABLET"
+  | "KEYBOARD"
+  | "HEADSET"
+
+export type Condition = "AS_NEW"
+  | "WORN"
+  | "NEW"
+
 
 export interface Owner {
   fullName: String;
