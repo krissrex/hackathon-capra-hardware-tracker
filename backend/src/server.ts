@@ -42,7 +42,7 @@ async function main() {
     const product = await Product.findOne({where: {uuid}})
     const data = product.getDataValue("data")
     data.product.status = "RESERVED"
-    product.setDataValue(data, data)
+    product.setDataValue("data", data)
     await product.save()
     res.json(product)
   })
