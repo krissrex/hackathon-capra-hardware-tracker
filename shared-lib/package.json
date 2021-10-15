@@ -1,0 +1,29 @@
+{
+  "name": "shared-lib",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "main": "dist/shared-lib.umd.js",
+  "module": "dist/shared-lib.es5.js",
+  "typings": "dist/types/shared-lib.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc --module commonjs",
+    "test": ""
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^4.4.4"
+  }
+}
