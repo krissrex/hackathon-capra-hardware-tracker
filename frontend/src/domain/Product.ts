@@ -9,7 +9,7 @@ export interface Product {
   producer: String;
   model: String;
   year: String;
-  spect: String;
+  spec: String;
   condition: Condition;
   type: Type | string
 }

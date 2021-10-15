@@ -9,14 +9,14 @@ import ProductAggregate, {
 } from "./domain/Product";
 
 function App() {
-  const data = useMemo(
+  const data = useMemo<ProductAggregate[]>(
     () => [
       {
         product: {
           producer: "Asus",
           model: "Asus zenbook",
           year: "2018",
-          spect: "super fancu quad core",
+          spec: "super fancu quad core",
           condition: Condition.AS_NEW,
           type: Type.PC,
         },
@@ -39,7 +39,7 @@ function App() {
           producer: "Asus",
           model: "Asus zenbook",
           year: "2018",
-          spect: "super fancu quad core",
+          spec: "super fancu quad core",
           condition: Condition.AS_NEW,
           type: Type.PC,
         },
@@ -67,11 +67,7 @@ function App() {
         {
           Header: "Product",
           accessor: "product",
-        },
-
-        {
-          Header: "Product",
-          accessor: "product",
+          Cell: (it) => <div>{it.value.producer}</div>,
         },
       ]}
       data={data}
