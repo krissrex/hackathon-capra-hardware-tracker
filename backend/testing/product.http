@@ -9,3 +9,7 @@ Content-Type: application/json
   "name": "my product",
   "price": 20000
 }
+
+###
+
+DELETE localhost:8080/api/product/1481e7e6-78d9-4d15-b462-a6bf17c6c92f

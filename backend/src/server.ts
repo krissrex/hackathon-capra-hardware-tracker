@@ -21,6 +21,12 @@ async function main() {
     res.status(201).json({status: "ok"})
   })
 
+  app.delete("/api/product/:uuid", async (req, res) => {
+    const uuid = req.params.uuid
+    await Product.destroy({where: {uuid}})
+    res.json({status: "deleted"})
+  })
+
   return app
 }
 
