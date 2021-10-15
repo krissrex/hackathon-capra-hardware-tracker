@@ -33,7 +33,17 @@ async function main() {
 
   app.get("/api/product/:uuid", async (req, res) => {
     const uuid = req.params.uuid
-    const product = Product.findOne({where: {uuid}})
+    const product = await Product.findOne({where: {uuid}})
+    res.json(product)
+  })
+
+  app.post("/api/product/:uuid/reserve", async (req, res) => {
+    const uuid = req.params.uuid
+    const product = await Product.findOne({where: {uuid}})
+    const data = product.getDataValue("data")
+    data.product.status = "RESERVED"
+    product.setDataValue(data, data)
+    await product.save()
     res.json(product)
   })
 

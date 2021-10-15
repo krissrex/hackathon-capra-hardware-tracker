@@ -17,5 +17,5 @@ export const ProductPage: React.FC = () => {
     apiService.getProduct(productUuid).then(setProduct)
   }, [productUuid])
 
-  return <ProductComponent product={product} />
+  return <ProductComponent product={product} onProductChanged={setProduct} />
 }
