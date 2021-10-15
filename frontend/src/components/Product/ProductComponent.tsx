@@ -5,7 +5,7 @@ export interface ProductProps {
   product: ProductAggregate
 }
 
-export function ProductComponent(): React.FC<ProductProps> {
+export const ProductComponent = ()=> {
 
   return <div>
 
