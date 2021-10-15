@@ -1,8 +1,9 @@
 import React, { useMemo } from "react";
 
 import "./App.css";
-import Card from "./components/Card";
 import { Type, Condition, PriceCurve } from "shared-lib";
+import { Column, useTable } from "react-table";
+import ProductAggreagate from "shared-lib/dist/types/Product";
 
 function App() {
   const data = useMemo(
@@ -57,8 +58,12 @@ function App() {
     []
   );
 
-  const columns = useMemo(
+  const columns = useMemo<Column<ProductAggreagate>[]>(
     () => [
+      {
+        Header: "Product",
+        accessor: "product",
+      },
       {
         Header: "Product",
         accessor: "product",
@@ -67,29 +72,66 @@ function App() {
     []
   );
 
-  var reactTable = require("react-table");
-  
-  const tableInstance = reactTable.useTable({ columns, data });
+  const tableInstance = useTable({ columns, data });
+
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    tableInstance;
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="Content">
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <Card>Dette er en tekst</Card>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </div>
-      </header>
-    </div>
+    // apply the table props
+    <table {...getTableProps()}>
+      <thead>
+        {
+          // Loop over the header rows
+          headerGroups.map((headerGroup) => (
+            // Apply the header row props
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {
+                // Loop over the headers in each row
+                headerGroup.headers.map((column) => (
+                  // Apply the header cell props
+                  <th {...column.getHeaderProps()}>
+                    {
+                      // Render the header
+                      column.render("Header")
+                    }
+                  </th>
+                ))
+              }
+            </tr>
+          ))
+        }
+      </thead>
+      {/* Apply the table body props */}
+      <tbody {...getTableBodyProps()}>
+        {
+          // Loop over the table rows
+          rows.map((row) => {
+            // Prepare the row for display
+            prepareRow(row);
+            return (
+              // Apply the row props
+              <tr {...row.getRowProps()}>
+                {
+                  // Loop over the rows cells
+                  row.cells.map((cell) => {
+                    // Apply the cell props
+                    return (
+                      <td {...cell.getCellProps()}>
+                        {
+                          // Render the cell contents
+                          cell.render("Cell")
+                        }
+                      </td>
+                    );
+                  })
+                }
+              </tr>
+            );
+          })
+        }
+      </tbody>
+    </table>
   );
 }
 

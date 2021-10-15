@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "keywords": [],
-  "main": "dist/shared-lib.umd.js",
-  "module": "dist/shared-lib.es5.js",
-  "typings": "dist/types/shared-lib.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "typings": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
