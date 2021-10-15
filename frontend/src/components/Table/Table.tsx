@@ -20,7 +20,7 @@ const Table = <T extends Object,>(props: Props<T>) => {
 
   return (
     // apply the table props
-    <table id="customers" {...getTableProps()}>
+    <table id="products" {...getTableProps()}>
       <thead>
         {
           // Loop over the header rows

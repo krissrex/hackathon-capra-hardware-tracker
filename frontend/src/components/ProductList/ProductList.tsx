@@ -39,7 +39,7 @@ const ProductList: React.FC<Props> = ({data}) => {
     {
       id: "link",
       accessor: "product",
-      Cell: (it) => <a href={'www.google.no'}><Button>Gå til produkt</Button></a>,
+      Cell: (it) => <a href={'www.google.no'}><Button margin={false}>Gå til produkt</Button></a>,
     },
   ]}
   data={data}
