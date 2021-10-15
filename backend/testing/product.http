@@ -6,10 +6,27 @@ POST localhost:8080/api/product
 Content-Type: application/json
 
 {
-  "name": "my product",
-  "price": 20000
+  "name": "samsung s9",
+  "price": 20000,
+  "type": "PHONE"
+}
+
+###
+
+POST localhost:8080/api/product
+Content-Type: application/json
+
+{
+  "name": "my mac",
+  "price": 1000,
+  "type": "PC"
 }
 
 ###
 
 DELETE localhost:8080/api/product/1481e7e6-78d9-4d15-b462-a6bf17c6c92f
+
+###
+
+GET localhost:8080/api/product?name=my%20mac
+
