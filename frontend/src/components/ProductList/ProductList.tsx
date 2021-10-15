@@ -13,6 +13,12 @@ const ProductList: React.FC<Props> = ({data}) => {
   return <Table<ProductAggregate>
     columns={[
     {
+      Header: "Type",
+      id: "type",
+      accessor: "product",
+      Cell: (it) => <div>{it.value.type}</div>,
+    },
+    {
       Header: "Produsent",
       id: "produsent",
       accessor: "product",
