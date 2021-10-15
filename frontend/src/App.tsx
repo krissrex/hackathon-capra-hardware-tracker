@@ -1,9 +1,8 @@
-import React, { useMemo } from "react";
+import React, {useMemo} from "react";
 
 import "./App.css";
-import { Type, Condition, PriceCurve } from "shared-lib";
-import { Column, useTable } from "react-table";
-import ProductAggreagate from "shared-lib/dist/types/Product";
+import ProductAggregate, {Condition, PriceCurve, Type} from "./domain/Product";
+import {Column, useTable} from "react-table";
 
 function App() {
   const data = useMemo(
@@ -58,7 +57,7 @@ function App() {
     []
   );
 
-  const columns = useMemo<Column<ProductAggreagate>[]>(
+  const columns = useMemo<Column<ProductAggregate>[]>(
     () => [
       {
         Header: "Product",
@@ -72,64 +71,64 @@ function App() {
     []
   );
 
-  const tableInstance = useTable({ columns, data });
+  const tableInstance = useTable({columns, data});
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+  const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} =
     tableInstance;
 
   return (
     // apply the table props
     <table {...getTableProps()}>
       <thead>
-        {
-          // Loop over the header rows
-          headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Apply the header cell props
-                  <th {...column.getHeaderProps()}>
-                    {
-                      // Render the header
-                      column.render("Header")
-                    }
-                  </th>
-                ))
-              }
-            </tr>
-          ))
-        }
+      {
+        // Loop over the header rows
+        headerGroups.map((headerGroup) => (
+          // Apply the header row props
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {
+              // Loop over the headers in each row
+              headerGroup.headers.map((column) => (
+                // Apply the header cell props
+                <th {...column.getHeaderProps()}>
+                  {
+                    // Render the header
+                    column.render("Header")
+                  }
+                </th>
+              ))
+            }
+          </tr>
+        ))
+      }
       </thead>
       {/* Apply the table body props */}
       <tbody {...getTableBodyProps()}>
-        {
-          // Loop over the table rows
-          rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {
-                  // Loop over the rows cells
-                  row.cells.map((cell) => {
-                    // Apply the cell props
-                    return (
-                      <td {...cell.getCellProps()}>
-                        {
-                          // Render the cell contents
-                          cell.render("Cell")
-                        }
-                      </td>
-                    );
-                  })
-                }
-              </tr>
-            );
-          })
-        }
+      {
+        // Loop over the table rows
+        rows.map((row) => {
+          // Prepare the row for display
+          prepareRow(row);
+          return (
+            // Apply the row props
+            <tr {...row.getRowProps()}>
+              {
+                // Loop over the rows cells
+                row.cells.map((cell) => {
+                  // Apply the cell props
+                  return (
+                    <td {...cell.getCellProps()}>
+                      {
+                        // Render the cell contents
+                        cell.render("Cell")
+                      }
+                    </td>
+                  );
+                })
+              }
+            </tr>
+          );
+        })
+      }
       </tbody>
     </table>
   );

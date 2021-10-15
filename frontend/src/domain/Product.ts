@@ -1,21 +1,20 @@
-
-export interface Receipt{
+export interface Receipt {
   store: string;
   price: number;
   dateOfPurchase: Date;
   picture?: string;
 }
 
-export interface Product{
+export interface Product {
   producer: String;
   model: String;
-  year: String;  
+  year: String;
   spect: String;
   condition: Condition;
   type: Type | string
 }
 
-export enum Type{
+export enum Type {
   PC,
   CELLPHONE,
   TABLET,
@@ -23,23 +22,23 @@ export enum Type{
   HEADSET,
 }
 
-export enum Condition{
+export enum Condition {
   AS_NEW,
   WORN,
   NEW,
 }
 
-export interface Owner{
+export interface Owner {
   fullName: String;
   from: Date;
   to?: Date;
 }
 
-export enum PriceCurve{
+export enum PriceCurve {
   STANDARD,
 }
 
-export default interface ProductAggreagate{
+export default interface ProductAggregate {
   receipt: Receipt;
   product: Product;
   priceCurve: PriceCurve;
