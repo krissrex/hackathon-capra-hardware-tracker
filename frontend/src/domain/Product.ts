@@ -9,7 +9,7 @@ export interface Product {
   producer: String;
   model: String;
   year: String;
-  spec: String;
+  specs: String;
   condition: Condition;
   type: Type | string
 }
@@ -39,6 +39,7 @@ export enum PriceCurve {
 }
 
 export default interface ProductAggregate {
+  uuid: string;
   receipt: Receipt;
   product: Product;
   priceCurve: PriceCurve;

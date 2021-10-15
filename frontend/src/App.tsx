@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 
 import "./App.css";
-import Table from "./components/Table/Table";
+import ProductList from "./components/ProductList/ProductList";
 import ProductAggregate, {
   Condition,
   PriceCurve,
@@ -12,11 +12,12 @@ function App() {
   const data = useMemo<ProductAggregate[]>(
     () => [
       {
+        uuid: "42342-324234-4234-234-23",
         product: {
           producer: "Asus",
-          model: "Asus zenbook",
+          model: "zenbook",
           year: "2018",
-          spec: "super fancu quad core",
+          specs: "super fancy quad core",
           condition: Condition.AS_NEW,
           type: Type.PC,
         },
@@ -35,11 +36,12 @@ function App() {
         ],
       },
       {
+        uuid: "4234234-234324-234234-234423",
         product: {
-          producer: "Asus",
-          model: "Asus zenbook",
+          producer: "Apple",
+          model: "macbook pro 15",
           year: "2018",
-          spec: "super fancu quad core",
+          specs: "super quad core",
           condition: Condition.AS_NEW,
           type: Type.PC,
         },
@@ -61,18 +63,7 @@ function App() {
     []
   );
 
-  return (
-    <Table<ProductAggregate>
-      columns={[
-        {
-          Header: "Product",
-          accessor: "product",
-          Cell: (it) => <div>{it.value.producer}</div>,
-        },
-      ]}
-      data={data}
-    />
-  );
+  return <ProductList data={data} />;
 }
 
 export default App;

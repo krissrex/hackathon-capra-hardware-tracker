@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Column, useTable } from 'react-table';
+import './Table.css';
 
 interface Props<T extends Object>{
   columns: Column<T>[];
@@ -19,7 +20,7 @@ const Table = <T extends Object,>(props: Props<T>) => {
 
   return (
     // apply the table props
-    <table {...getTableProps()}>
+    <table id="customers" {...getTableProps()}>
       <thead>
         {
           // Loop over the header rows
