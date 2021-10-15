@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ProductSearchPage from "./components/ProductSearchPage/ProductSearchPage";
 import CreateProductPage from "./components/CreateProductPage/CreateProductPage";
 
-import "./TestData"
+import "./TestData";
 
 function App() {
   return (

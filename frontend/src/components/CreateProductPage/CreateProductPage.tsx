@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React from 'react'
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router';
 import ProductAggregate from '../../domain/Product';
+import { testData } from '../../TestData';
 import Button from '../Button';
 import './CreateProductPage.css';
 
@@ -11,24 +13,30 @@ type NewProduct = Omit<ProductAggregate, "uuid">
 
 const CreateProductPage = () => {
 
+  const history = useHistory()
+
   const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm();
   const onSubmit = (formData:any) => {
     const data: NewProduct = formData 
     
-    async function fetchData(): Promise<ProductAggregate[]> {
+    async function postData(): Promise<ProductAggregate[]> {
       
       return await axios.post(apiLink + "/product", data);
     }
-    fetchData().then(response => {
-      console.log(response)
+    postData().then(response => {
+      const uuid = (response as any).data.product.uuid
+    if(uuid){
+      history.push('product/' + uuid)
+    }
     })
 
   };
   
-  setValue('product.status', 'OWNED')
+  setValue('product.status', 'IN_STORAGE')
   setValue('product.condition', 'NEW')
   setValue('priceCurve', 'STANDARD')
   setValue('owners', [])
+  setValue('product.productPictures', testData[0].product.productPictures)
 
   return <form onSubmit={handleSubmit(onSubmit)}>
     <label>Type</label>
