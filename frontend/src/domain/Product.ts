@@ -37,9 +37,7 @@ export interface Owner {
   to?: Date;
 }
 
-export enum PriceCurve {
-  STANDARD,
-}
+export type PriceCurve = 'STANDARD'
 
 export default interface ProductAggregate {
   uuid: string;
