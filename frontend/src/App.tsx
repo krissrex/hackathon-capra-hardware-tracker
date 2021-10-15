@@ -1,10 +1,12 @@
 import React, { useMemo } from "react";
 
 import "./App.css";
-import { Type, Condition, PriceCurve } from "shared-lib";
-import { Column, useTable } from "react-table";
-import ProductAggreagate from "shared-lib/dist/types/Product";
 import Table from "./components/Table/Table";
+import ProductAggregate, {
+  Condition,
+  PriceCurve,
+  Type,
+} from "./domain/Product";
 
 function App() {
   const data = useMemo(
@@ -59,22 +61,8 @@ function App() {
     []
   );
 
-  const columns = useMemo<Column<ProductAggreagate>[]>(
-    () => [
-      {
-        Header: "Product",
-        accessor: "product",
-      },
-      {
-        Header: "Product",
-        accessor: "product",
-      },
-    ],
-    []
-  );
-
   return (
-    <Table<ProductAggreagate>
+    <Table<ProductAggregate>
       columns={[
         {
           Header: "Product",
