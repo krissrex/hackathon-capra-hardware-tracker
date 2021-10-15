@@ -19,10 +19,10 @@ async function main() {
   })
 
   app.post("/api/product", async (req, res) => {
-    await Product.create({
+    const product = await Product.create({
       data: req.body
     })
-    res.status(201).json({status: "ok"})
+    res.status(201).json({status: "ok", product})
   })
 
   app.delete("/api/product/:uuid", async (req, res) => {
