@@ -1,19 +1,17 @@
-GET localhost:8080/api/product
+GET http://localhost:8080/api/product
 
 ###
 
-POST localhost:8080/api/product
+POST http://localhost:8080/api/product
 Content-Type: application/json
 
 {
-  "name": "samsung s9",
-  "price": 20000,
-  "type": "PHONE"
+  "product":{"producer":"Asus","model":"zenbook","year":"2018","specs":"super fancy quad core","condition":0,"type":0},"receipt":{"store":"Elkjøp","price":29999,"dateOfPurchase":"2020-02-02T23:00:00.000Z"},"priceCurve":0,"owners":[{"fullName":"Per Persen","from":"2020-02-02T23:00:00.000Z"}]
 }
 
 ###
 
-POST localhost:8080/api/product
+POST http://localhost:8080/api/product
 Content-Type: application/json
 
 {
@@ -24,9 +22,9 @@ Content-Type: application/json
 
 ###
 
-DELETE localhost:8080/api/product/1481e7e6-78d9-4d15-b462-a6bf17c6c92f
+DELETE http://localhost:8080/api/product/7a957680-2e45-4944-8b97-4ee3b2b6c6a1
 
 ###
 
-GET localhost:8080/api/product?name=my%20mac
+GET http://localhost:8080/api/product?name=my%20mac
 
